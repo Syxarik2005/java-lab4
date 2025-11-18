@@ -1,4 +1,4 @@
-package com.sergey;
+package com.sergey.model;
 
 import java.util.Objects;
 

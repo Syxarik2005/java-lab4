@@ -1,4 +1,4 @@
-package com.sergey;
+package com.sergey.model;
 
 /**
  * Перечисление для пола человека

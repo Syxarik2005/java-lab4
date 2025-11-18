@@ -77,6 +77,12 @@ csv-parser-app/
     mvn exec:java -Dexec.mainClass="com.sergey.Main"
     ```
 
+5.  **Генерация документации:**
+    Эта команда сгенерирует Javadoc-документацию 
+    ```bash
+    mvn javadoc:javadoc
+    ```
+
 ## Автор
 
 *   **Имя:** Белявцев Сергей

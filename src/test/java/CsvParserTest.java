@@ -1,6 +1,9 @@
 package com.sergey;
 
 import com.opencsv.exceptions.CsvException;
+import com.sergey.model.Gender;
+import com.sergey.model.Person;
+import com.sergey.parser.CsvParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

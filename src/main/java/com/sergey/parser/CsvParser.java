@@ -1,10 +1,12 @@
-package com.sergey;
+package com.sergey.parser;
 
-// ИЗМЕНЕНИЕ: Добавлены новые импорты для "строителя"
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
+import com.sergey.model.Division;
+import com.sergey.model.Gender;
+import com.sergey.model.Person;
 
 import java.io.IOException;
 import java.io.InputStream;

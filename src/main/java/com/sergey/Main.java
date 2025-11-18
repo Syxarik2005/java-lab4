@@ -1,6 +1,9 @@
 package com.sergey;
 
 import com.opencsv.exceptions.CsvException;
+import com.sergey.model.Person;
+import com.sergey.parser.CsvParser;
+
 import java.io.IOException;
 import java.util.List;
 
