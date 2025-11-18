@@ -3,7 +3,9 @@ package com.sergey;
 import java.time.LocalDate;
 
 /**
- * Класс, представляющий человека.
+ * Класс, представляющий человека (сотрудника)
+ * Является неизменяемым объектом-контейнером для данных
+ *
  * @author Белявцев Сергей
  * @version 1.0
  */
@@ -14,7 +16,16 @@ public class Person {
     private final LocalDate birthDate;
     private final Division division;
     private final int salary;
-
+    /**
+     * Создает новый объект человека
+     *
+     * @param id        Уникальный идентификатор
+     * @param name      Имя
+     * @param gender    Пол (из перечисления Gender)
+     * @param birthDate Дата рождения
+     * @param division  Объект подразделения
+     * @param salary    Зарплата
+     */
     public Person(int id, String name, Gender gender, LocalDate birthDate, Division division, int salary) {
         this.id = id;
         this.name = name;

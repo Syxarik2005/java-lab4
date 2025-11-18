@@ -18,36 +18,39 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Парсер для чтения данных о людях из CSV-файла.
+ * Парсер для чтения данных о людях из CSV-файла и преобразования их в список объектов
+ *
  * @author Белявцев Сергей
- * @version 1.0
+ * @version 1.1
+ * @see Person
+ * @see Division
  */
 public class CsvParser {
-    /** Разделитель, используемый в CSV-файле. */
+    /** Разделитель, используемый в CSV-файле */
     private static final char SEPARATOR = ';';
-    /** Форматтер для преобразования строки с датой в объект LocalDate. */
+    /** Форматер для преобразования строки с датой в объект LocalDate */
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     /**
-     * Считывает данные из CSV-файла и преобразует их в список объектов Person.
-     * @param csvFilePath Путь к файлу в папке resources.
-     * @return Список объектов Person.
-     * @throws IOException если возникает ошибка при чтении файла.
-     * @throws CsvException если возникает ошибка при парсинге CSV.
+     * Считывает данные из CSV-файла и преобразует их в список объектов Person
+     * @param csvFilePath Путь к файлу в папке resources
+     * @return Список объектов {@link Person}
+     * @throws IOException если возникает ошибка при чтении файла
+     * @throws CsvException если возникает ошибка при парсинге CSV
      */
     public List<Person> parse(String csvFilePath) throws IOException, CsvException {
         List<Person> people = new ArrayList<>();
-        // Эта карта будет хранить уже созданные подразделения, чтобы не создавать дубликаты.
-        // Ключ - название подразделения, Значение - объект Division.
+        // Эта карта будет хранить уже созданные подразделения, чтобы не создавать дубликаты
+        // Ключ - название подразделения, Значение - объект Division
         Map<String, Division> divisionCache = new HashMap<>();
-        int nextDivisionId = 1; // Счетчик для генерации уникальных ID для новых подразделений.
+        int nextDivisionId = 1; // Счетчик для генерации уникальных ID для новых подразделений
 
         InputStream in = getClass().getClassLoader().getResourceAsStream(csvFilePath);
         if (in == null) {
             throw new IOException("Файл не найден в ресурсах: " + csvFilePath);
         }
 
-        // ИСПРАВЛЕНИЕ: Используем "строитель" CSVReaderBuilder, чтобы правильно указать разделитель.
+        // Используем "строитель" CSVReaderBuilder, чтобы правильно указать разделитель
         try (CSVReader reader = new CSVReaderBuilder(new InputStreamReader(in, StandardCharsets.UTF_8))
                 .withCSVParser(new CSVParserBuilder().withSeparator(SEPARATOR).build())
                 .build()) {

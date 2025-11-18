@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Главный класс для запуска приложения по парсингу CSV.
+ * Главный класс для запуска приложения по парсингу CSV
  * @author Белявцев Сергей
  * @version 1.0
  */
